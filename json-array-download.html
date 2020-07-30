@@ -1,0 +1,29 @@
+<html>
+
+<head>
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <script type="text/javascript">
+        function DownloadJson() {
+            var studentList = [
+                { "Name": "John", "score": "30" },
+                { "Name": "Rozi", "score": "40" },
+                { "Name": "Peter", "score": "50" },
+                { "Name": "Finch", "score": "60" },
+                { "Name": "Ravi", "score": "70" }
+            ];
+            //Convert JSON Array to string.
+            var json = JSON.stringify(studentList);
+            var blob = new Blob([json]);
+            var link = document.createElement('a');
+            link.href = window.URL.createObjectURL(blob);
+            link.download = "studentList.txt";
+            link.click();
+        }
+    </script>
+
+<body>
+    <input type="button" value="Download Json" onclick="DownloadJson()" />
+</body>
+</head>
+
+</html>
